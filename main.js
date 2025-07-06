@@ -3,8 +3,8 @@ const result = document.getElementById("result");
 const winStats = document.getElementById("win-stats");
 const scoreStats = document.getElementById("score-stats");
 
-const MEMORY_LIMIT = 15; // max transitions to keep in Pattern model
-const PATTERN_CONFIDENCE_MARGIN = 2; // minimum gap to trust Pattern prediction
+const MEMORY_LIMIT = 15;
+const PATTERN_CONFIDENCE_MARGIN = 2;
 
 let score = 0;
 let maxScore = 0;
