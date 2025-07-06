@@ -42,6 +42,8 @@ const losesAgainst = {
   scissors: "paper",
 };
 
+
+//actual RPS logic
 for (let button of choiceButtons) {
   button.addEventListener("click", (e) => {
     p2 = smartChoice();
@@ -67,6 +69,7 @@ for (let button of choiceButtons) {
   });
 }
 
+// update array of patterns
 function updatePatternArray(prev, curr) {
   if (!prev) return;
 
@@ -85,7 +88,7 @@ function updatePatternArray(prev, curr) {
   }
 }
 
-// Pattern prediction
+// pattern prediction
 function predictNextMove(lastMove) {
   if (!lastMove || !patternArray[lastMove]) return null;
 
@@ -106,9 +109,12 @@ function predictNextMove(lastMove) {
   return null;
 }
 
+
 // smart boi logic
+
 function smartChoice() {
-  // Strategy 1: pattern recognition (only if confident)
+
+  // strategy 1: pattern recognition (only if confident)
   const predictedMove = predictNextMove(lastPlayerMove);
   if (predictedMove) {
     const counter = winsAgainst[predictedMove];
@@ -116,7 +122,7 @@ function smartChoice() {
     return counter;
   }
 
-  // Strategy 2: Win-stay / lose-shift
+  // strategy 2: Win-stay / lose-shift
   if (lastResult && lastBotMove) {
     if (lastResult === "lose") {
       const expected = winsAgainst[lastBotMove];
@@ -137,6 +143,7 @@ function smartChoice() {
   console.log("Using fallback random strategy:", move);
   return move;
 }
+
 
 // resullts calculator
 function winCalc(p1, p2) {
