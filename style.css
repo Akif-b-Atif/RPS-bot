@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.buttons {
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+}
