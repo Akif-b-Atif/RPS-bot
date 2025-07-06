@@ -85,7 +85,7 @@ function updatePatternArray(prev, curr) {
   }
 }
 
-// === Pattern PREDICTION ===
+// Pattern prediction
 function predictNextMove(lastMove) {
   if (!lastMove || !patternArray[lastMove]) return null;
 
@@ -106,7 +106,7 @@ function predictNextMove(lastMove) {
   return null;
 }
 
-// === SMART BOT LOGIC ===
+// smart boi logic
 function smartChoice() {
   // Strategy 1: pattern recognition (only if confident)
   const predictedMove = predictNextMove(lastPlayerMove);
@@ -121,17 +121,17 @@ function smartChoice() {
     if (lastResult === "lose") {
       const expected = winsAgainst[lastBotMove];
       const counter = winsAgainst[expected];
-      console.log(`Using lose-shift heuristic. Expecting ${expected}. Playing ${counter}`);
+      console.log(`Using lose-shift. Expecting ${expected}, so playing ${counter}`);
       return counter;
     } else if (lastResult === "win") {
       const expected = lastPlayerMove;
       const counter = winsAgainst[expected];
-      console.log(`Using win-stay heuristic. Expecting repeat ${expected}. Playing ${counter}`);
+      console.log(`Using win-stay. Expecting repeat ${expected}, so playing ${counter}`);
       return counter;
     }
   }
 
-  // Strategy 3: Fallback random
+  // Strategy 3: random bs GO
   const options = ['rock', 'paper', 'scissors'];
   const move = options[Math.floor(Math.random() * 3)];
   console.log("Using fallback random strategy:", move);
